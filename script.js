@@ -49,23 +49,28 @@ let index = phrasal.indexOf("Nemo");
 console.log((index != -1) ? "found" : "not found Nemo");
 
 // Exercice 4
-const normalResult = "boum";
+let normalResult = "Bm";
 let numberUser = prompt("Saisissez un nombre :");
 
 if (numberUser < 2) {
     console.log(normalResult);
 } else if(numberUser > 2 ) {
-    if(numberUser % 2 == 0 && numberUser % 5 == 0) {
-        console.log((normalResult+"!").toUpperCase());
+    let array_string = normalResult.split("");
+    for(let i = 0; i < numberUser; i++) {
+        array_string.splice(1, null, 'o');
     }
-    else if(numberUser % 5 == 0) {
-        console.log(normalResult.toUpperCase());
+    normalResult = array_string.join("");
+
+    if(numberUser % 2 == 0 && numberUser  % 5 == 0) {
+        normalResult = normalResult.toUpperCase() + "!";
     }
-    else if(numberUser % 2 == 0 ) {
-        console.log(normalResult + "!");
+    else if(numberUser % 2 == 0) {
+        normalResult+= "!";
     }
-    else {
-        console.log(" la chaîne doit comporter n nombre de 'o' (n étant le nombre donné)")
+    else if(numberUser %5 == 0) {
+        normalResult = normalResult.toUpperCase();
     }
+
+    console.log(normalResult);
 }
 
